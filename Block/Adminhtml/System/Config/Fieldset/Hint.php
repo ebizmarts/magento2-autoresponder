@@ -65,14 +65,14 @@ class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework
     {
         return $this->_mandrillHelper->isActive();
     }
+
     public function getPxParams()
     {
         $modules = $this->_loader->load();
         $v = $this->getVersion();
         $extension = "AutoResponder;{$v}";
         $mageEdition = $this->_metaData->getEdition();
-        switch($mageEdition)
-        {
+        switch ($mageEdition) {
             case 'Community':
                 $mageEdition = 'CE';
                 break;
@@ -86,14 +86,14 @@ class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework
         return "ext=$extension&mage={$mage}&ctrl={$hash}";
 
     }
+
     public function getVersion()
     {
         $modules = $this->_loader->load();
         $v = "";
-        if(isset($modules['Ebizmarts_AutoResponder']))
-        {
-            $v =$modules['Ebizmarts_AutoResponder']['setup_version'];
+        if (isset($modules['Ebizmarts_AutoResponder'])) {
+            $v = $modules['Ebizmarts_AutoResponder']['setup_version'];
         }
         return $v;
     }
-
+}
