@@ -65,7 +65,7 @@ class Cron
             }
         }
     }
-    protected function _process($storeId)
+    protected function _processStore($storeId)
     {
         if($this->_helper->getConfig(Config::NEWORDER_ACTIVE,$storeId))
         {
@@ -88,7 +88,7 @@ class Cron
         $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days - 1, 'DAY'));
         $to = new \Zend_Db_Expr($expr);
 
-        $collection = $this->_objectManager->create('\Magento\Sales\Model\Order\Collection');
+        $collection = $this->_objectManager->create('\Magento\Sales\Model\Resource\Order\Collection');
         $collection->addFieldToFilter('main_table.store_id', array('eq' => $storeId))
             ->addFieldToFilter('main_table.created_at', array('from' => $from, 'to' => $to));
         if ($this->_helper->getConfig(Config::NEWORDER_TRIGGER, $storeId) == 2) {
@@ -99,7 +99,7 @@ class Cron
         }
         $mandrillHelper = $this->_objectManager->get('\Ebizmarts\Mandrill\Helper\Data');
         foreach ($collection as $order) {
-            $translate = Mage::getSingleton('core/translate');
+            //$translate = Mage::getSingleton('core/translate');
             $email = $order->getCustomerEmail();
             if ($mandrillHelper->isSubscribed($email, 'neworder', $storeId)) {
                 $name = $order->getCustomerFirstname() . ' ' . $order->getCustomerLastname();
@@ -117,4 +117,9 @@ class Cron
             }
         }
     }
+    function _getIntervalUnitSql($interval, $unit)
+    {
+        return sprintf('INTERVAL %d %s', $interval, $unit);
+    }
+
 }
