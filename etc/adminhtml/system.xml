@@ -25,6 +25,13 @@
                         <field id="*/*/active">1</field>
                     </depends>
                 </field>
+                <field id="identity" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
             </group>
             <group id="neworder" translate="label" type="text" sortOrder="20" showInStore="1" showInWebsite="1" showInDefault="1">
                 <label>After New Order</label>
@@ -73,7 +80,14 @@
                         <field id="*/*/active">1</field>
                     </depends>
                 </field>
-                <field id="cron_time" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="customer" translate="label" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Groups</label>
+                    <source_model>Ebizmarts\AutoResponder\Model\System\Config\Customergroup</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="cron_time" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Hour to send email</label>
                     <source_model>Ebizmarts\AutoResponder\Model\System\Config\Hours</source_model>
                     <depends>

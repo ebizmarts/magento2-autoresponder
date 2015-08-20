@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Store/etc/config.xsd">
+    <default>
+        <autoresponder>
+            <general>
+            </general>
+            <neworder>
+                <subject>Thanks for your order</subject>
+                <mandrill_tag>Autoresponder_NewOrder</mandrill_tag>
+                <listname>New Order List</listname>
+            </neworder>
+        </autoresponder>
+    </default>
+</config>
