@@ -103,7 +103,7 @@ class Cron
             $email = $order->getCustomerEmail();
             if ($mandrillHelper->isSubscribed($email, 'neworder', $storeId)) {
                 $name = $order->getCustomerFirstname() . ' ' . $order->getCustomerLastname();
-                $url = $this->_storeManager->getStore($storeId)->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_LINK) . 'ebizautoresponder/autoresponder/unsubscribe?list=neworder&email=' . $email . '&store=' . $storeId;
+                $url = $this->_storeManager->getStore($storeId)->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_LINK) . 'mandrill/autoresponder/unsubscribe?list=neworder&email=' . $email . '&store=' . $storeId;
                 $vars = array('tags' => array($tags), 'url' => $url, 'subject' => $mailSubject);
 
                 $transport = $this->_transportBuilder->setTemplateIdentifier($templateId)
