@@ -9,6 +9,11 @@
                 <mandrill_tag>Autoresponder_NewOrder</mandrill_tag>
                 <listname>New Order List</listname>
             </neworder>
+            <birthday>
+                <subject>Happy Birthday</subject>
+                <mandrill_tag>Autoresponder_Birthday</mandrill_tag>
+                <listname>Birthday List</listname>
+            </birthday>
         </autoresponder>
     </default>
 </config>

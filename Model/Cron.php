@@ -55,6 +55,10 @@ class Cron
         $this->_helper          = $helper;
         $this->_logger          = $logger;
     }
+
+    /**
+     *
+     */
     public function process()
     {
         foreach($this->_storeManager->getStores() as $storeId => $val)
@@ -65,13 +69,24 @@ class Cron
             }
         }
     }
+
+    /**
+     * @param $storeId
+     */
     protected function _processStore($storeId)
     {
-        if($this->_helper->getConfig(Config::NEWORDER_ACTIVE,$storeId))
+        if($this->_helper->getConfig(Config::NEWORDER_ACTIVE,$storeId)&&$this->_helper->isSetTime(Config::NEWORDER_CRON_TIME,$storeId))
         {
             $this->_processNewOrder($storeId);
         }
+        if($this->_helper->getConfig(Config::BIRTHDAY_ACTIVE, $storeId) && $this->_helper->isSetTime($this->_helper->getConfig(Config::BIRTHDAY_CRON_TIME, $storeId))) {
+            $this->_processBirthday($storeId);
+        }
     }
+
+    /**
+     * @param $storeId
+     */
     protected function _processNewOrder($storeId)
     {
         $customerGroups = explode(",", $this->_helper->getConfig(Config::NEWORDER_CUSTOMER_GROUPS, $storeId));
@@ -117,6 +132,20 @@ class Cron
             }
         }
     }
+
+    /**
+     * @param $storeId
+     */
+    public function _processBirthday($storeId)
+    {
+
+    }
+
+    /**
+     * @param $interval
+     * @param $unit
+     * @return string
+     */
     function _getIntervalUnitSql($interval, $unit)
     {
         return sprintf('INTERVAL %d %s', $interval, $unit);

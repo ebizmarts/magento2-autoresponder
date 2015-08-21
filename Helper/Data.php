@@ -37,5 +37,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->scopeConfig->getValue($label,\Magento\Store\Model\ScopeInterface::SCOPE_STORE, $store);
     }
-
+    public function isSetTime($setTime)
+    {
+        $now = date('H');
+        if ($now == $setTime) {
+            return true;
+        }
+        return false;
+    }
 }
