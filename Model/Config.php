@@ -14,6 +14,14 @@ class Config
     const ACTIVE            = 'autoresponder/general/active';
     const GENERAL_SENDER    = 'autoresponder/general/identity';
 
+    const COUPON_AUTOMATIC  = 2;
+    const COUPON_MANUAL     = 1;
+    const COUPON_GENERAL    = 2;
+    const COUPON_PER_ORDER  = 1;
+    const TYPE_EACH         = 1;
+    const TYPE_ONCE         = 2;
+    const TYPE_SPECIFIC     = 3;
+
 
     const NEWORDER_ACTIVE           = 'autoresponder/neworder/active';
     const NEWORDER_DAYS             = 'autoresponder/neworder/days';
