@@ -3,12 +3,17 @@
         <img src="http://ebizmarts.com/extension-logo.php?<?php echo $this->getPxParams(); ?>"/><br><br>
         <div style="padding-left: 30px;">
             <p><strong style="color:#EA7601;">Ebizmarts Auto Responders v<?php echo $this->getVersion()?></strong> <br>Need help? See our <a href="http://wiki.ebizmarts.com/abandoned-carts/" target="_blank">Wiki</a> or browse our <a href="http://ebizmarts.com/forums/view/1" target="_blank">support forums</a> Got feedback? <a href="mailto:info@ebizmarts.com?Subject=Support Abandoned Cart Version <?php echo $this->getVersion() ?>">Email us</a></p>
-            <p>You can find more extension in our <a href="http://store.ebizmarts.com" target="_blank">Store</a></p>
+            <p>You can find more extensions in our <a href="http://store.ebizmarts.com" target="_blank">Store</a></p>
         </div>
         <?php if(!$this->mandrillEnabled()) :?>
             <div class="message-error" style="padding-left: 30px;">
                 You must setup Mandrill extension to use this extension
             </div>
         <?php endif; ?>
+        <div  style="padding-left: 30px">
+        <p>
+            <h3><a  style="color:#EA7836;font-weight: bold" href="http://www.mailchimp.com/signup?pid=ebizmarts&source=website" target="_blank">Support MageMonkey, Subscribe for a free MailChimp Account!</a> </h3>
+        </p>
+        </div>
     </h4>
 </div>
