@@ -9,16 +9,8 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-namespace Ebizmarts\AutoResponder\Model\System\Config;
-
-class Hours
-{
-    public function toOptionArray()
-    {
-        $options = array();
-        for ($i = 0; $i < 24; $i++) {
-            $options[] = array('value' => $i, 'label' => $i);
-        }
-        return $options;
-    }
-}
+\Magento\Framework\Component\ComponentRegistrar::register(
+    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+    'Ebizmarts_Autoresponder',
+    __DIR__
+);

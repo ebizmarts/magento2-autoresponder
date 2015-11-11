@@ -2,7 +2,7 @@
   "name": "ebizmarts/magento2-autoresponder",
   "description": "Send autoresponders emails",
   "type": "magento2-module",
-  "version": "3.0.1-beta",
+  "version": "3.0.2-RC",
   "authors": [
     {
       "name": "Ebizmarts Corp",

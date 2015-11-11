@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Cron/etc/crontab.xsd">
+<!--
+/**
+ * Ebizmarts_Autoresponder Magento JS component
+ *
+ * @category    Ebizmarts
+ * @package     Ebizmarts_Autoresponder
+ * @author      Ebizmarts Team <info@ebizmarts.com>
+ * @copyright   Ebizmarts (http://ebizmarts.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="default">
         <job name="ebizmarts_autoresponder" instance="Ebizmarts\AutoResponder\Model\Cron" method="process">
             <schedule>*/5 * * * *</schedule>
