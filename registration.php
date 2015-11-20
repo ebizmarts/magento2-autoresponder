@@ -11,6 +11,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Ebizmarts_Autoresponder',
+    'Ebizmarts_AutoResponder',
     __DIR__
 );
