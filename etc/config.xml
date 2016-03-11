@@ -25,6 +25,11 @@
                 <mandrill_tag>Autoresponder_Birthday</mandrill_tag>
                 <listname>Birthday List</listname>
             </birthday>
+            <related>
+                <subject>Please review your purchased products</subject>
+                <mandrill_tag>Autoresponder_RelatedProducts</mandrill_tag>
+                <listname>Related Products List</listname>
+            </related>
         </autoresponder>
     </default>
 </config>

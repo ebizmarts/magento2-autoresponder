@@ -13,4 +13,5 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
     <template id="autoresponder_neworder_template" label="New Order" file="neworder.html" type="html" module="Ebizmarts_AutoResponder" area="adminhtml"/>
     <template id="autoresponder_birthday_template" label="Happy Birthday" file="birthday.html" type="html" module="Ebizmarts_AutoResponder" area="adminhtml"/>
+    <template id="autoresponder_related_products_template" label="Related Products" file="relatedproducts.html" type="html" module="Ebizmarts_AutoResponder" area="adminhtml"/>
 </config>

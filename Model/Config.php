@@ -26,31 +26,41 @@ class Config
     const TYPE_SPECIFIC     = 3;
 
 
-    const NEWORDER_ACTIVE           = 'autoresponder/neworder/active';
-    const NEWORDER_DAYS             = 'autoresponder/neworder/days';
-    const NEWORDER_CUSTOMER_GROUPS  = 'autoresponder/neworder/customer';
-    const NEWORDER_TRIGGER          = 'autoresponder/neworder/trigger';
-    const NEWORDER_ORDER_STATUS     = 'autoresponder/neworder/order_status';
-    const NEWORDER_TEMPLATE         = 'autoresponder/neworder/template';
-    const NEWORDER_MANDRILL_TAG     = 'autoresponder/neworder/mandrill_tag';
-    const NEWORDER_SUBJECT          = 'autoresponder/neworder/subject';
-    const NEWORDER_CRON_TIME        = 'autoresponder/neworder/cron_time';
+    const NEWORDER_ACTIVE                   = 'autoresponder/neworder/active';
+    const NEWORDER_DAYS                     = 'autoresponder/neworder/days';
+    const NEWORDER_CUSTOMER_GROUPS          = 'autoresponder/neworder/customer';
+    const NEWORDER_TRIGGER                  = 'autoresponder/neworder/trigger';
+    const NEWORDER_ORDER_STATUS             = 'autoresponder/neworder/order_status';
+    const NEWORDER_TEMPLATE                 = 'autoresponder/neworder/template';
+    const NEWORDER_MANDRILL_TAG             = 'autoresponder/neworder/mandrill_tag';
+    const NEWORDER_SUBJECT                  = 'autoresponder/neworder/subject';
+    const NEWORDER_CRON_TIME                = 'autoresponder/neworder/cron_time';
 
-    const BIRTHDAY_ACTIVE           = 'autoresponder/birthday/active';
-    const BIRTHDAY_DAYS             = 'autoresponder/birthday/days';
-    const BIRTHDAY_CUSTOMER_GROUPS  = 'autoresponder/birthday/customer';
-    const BIRTHDAY_TEMPLATE         = 'autoresponder/birthday/template';
-    const BIRTHDAY_SUBJECT          = 'autoresponder/birthday/subject';
-    const BIRTHDAY_MANDRILL_TAG     = 'autoresponder/birthday/mandrill_tag';
-    const BIRTHDAY_COUPON           = 'autoresponder/birthday/coupon';
-    const BIRTHDAY_CUSTOMER_COUPON  = 'autoresponder/birthday/customer_coupon';
-    const BIRTHDAY_AUTOMATIC        = 'autoresponder/birthday/automatic';
-    const BIRTHDAY_COUPON_CODE      = 'autoresponder/birthday/coupon_code';
-    const BIRTHDAY_EXPIRE           = 'autoresponder/birthday/expire';
-    const BIRTHDAY_LENGTH           = 'autoresponder/birthday/length';
-    const BIRTHDAY_DISCOUNT_TYPE    = 'autoresponder/birthday/discounttype';
-    const BIRTHDAY_DISCOUNT         = 'autoresponder/birthday/discount';
-    const BIRTHDAY_COUPON_LABEL     = 'autoresponder/birthday/couponlabel';
-    const BIRTHDAY_CRON_TIME        = 'autoresponder/birthday/cron_time';
+    const BIRTHDAY_ACTIVE                   = 'autoresponder/birthday/active';
+    const BIRTHDAY_DAYS                     = 'autoresponder/birthday/days';
+    const BIRTHDAY_CUSTOMER_GROUPS          = 'autoresponder/birthday/customer';
+    const BIRTHDAY_TEMPLATE                 = 'autoresponder/birthday/template';
+    const BIRTHDAY_SUBJECT                  = 'autoresponder/birthday/subject';
+    const BIRTHDAY_MANDRILL_TAG             = 'autoresponder/birthday/mandrill_tag';
+    const BIRTHDAY_COUPON                   = 'autoresponder/birthday/coupon';
+    const BIRTHDAY_CUSTOMER_COUPON          = 'autoresponder/birthday/customer_coupon';
+    const BIRTHDAY_AUTOMATIC                = 'autoresponder/birthday/automatic';
+    const BIRTHDAY_COUPON_CODE              = 'autoresponder/birthday/coupon_code';
+    const BIRTHDAY_EXPIRE                   = 'autoresponder/birthday/expire';
+    const BIRTHDAY_LENGTH                   = 'autoresponder/birthday/length';
+    const BIRTHDAY_DISCOUNT_TYPE            = 'autoresponder/birthday/discounttype';
+    const BIRTHDAY_DISCOUNT                 = 'autoresponder/birthday/discount';
+    const BIRTHDAY_COUPON_LABEL             = 'autoresponder/birthday/couponlabel';
+    const BIRTHDAY_CRON_TIME                = 'autoresponder/birthday/cron_time';
+
+    const RELATEDPRODUCTS_ACTIVE            = 'autoresponder/related_products/active';
+    const RELATEDPRODUCTS_DAYS              = 'autoresponder/related_products/days';
+    const RELATEDPRODUCTS_CUSTOMER_GROUPS   = 'autoresponder/related_products/customer';
+    const RELATEDPRODUCTS_ORDER_STATUS      = 'autoresponder/related_products/order_status';
+    const RELATEDPRODUCTS_TEMPLATE          = 'autoresponder/related_products/template';
+    const RELATEDPRODUCTS_MANDRILL_TAG      = 'autoresponder/related_products/mandrill_tag';
+    const RELATEDPRODUCTS_SUBJECT           = 'autoresponder/related_products/subject';
+    const RELATEDPRODUCTS_CRON_TIME         = 'autoresponder/related_products/cron_time';
+    const RELATEDPRODUCTS_MAX_RELATED       = 'autoresponder/related_products/max_related';
 
 }

@@ -231,6 +231,68 @@
                     </depends>
                 </field>
             </group>
+            <group id="related_products" translate="label" type="text" sortOrder="40" showInStore="1" showInWebsite="1" showInDefault="1">
+                <label>Related Products</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="days" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Days after order</label>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="order_status" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                        <field id="*/*/trigger" separator=",">1,2</field>
+                    </depends>
+                </field>
+                <field id="subject" translate="label" type="text" sortOrder="50" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Email Subject</label>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="mandrill_tag" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mandrill Tag</label>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="customer" translate="label" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Groups</label>
+                    <source_model>Ebizmarts\AutoResponder\Model\System\Config\Customergroup</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="max_related" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max Related Products</label>
+                    <comment><![CDATA[Max related product, 0 means no max]]></comment>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                    </depends>
+                </field>
+                <field id="cron_time" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hour to send email</label>
+                    <source_model>Ebizmarts\AutoResponder\Model\System\Config\Hours</source_model>
+                    <depends>
+                        <field id="*/*/active">1</field>
+                        <field id="*/*/trigger">0</field>
+                    </depends>
+                </field>
+            </group>
         </section>
     </system>
 </config>
