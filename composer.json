@@ -1,8 +1,12 @@
 {
   "name": "ebizmarts/magento2-autoresponder",
   "description": "Send autoresponders emails",
+  "autoload": {
+    "psr-4": {"Ebizmarts\\MageMonkey\\":""},
+    "files": ["registration.php"]
+  },
   "type": "magento2-module",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "authors": [
     {
       "name": "Ebizmarts Corp",
@@ -22,13 +26,5 @@
   "require" : {
     "mandrill/mandrill": "1.0.*",
     "ebizmarts/magento2-mandrill": "3.1.*"
-  },
-  "extra": {
-    "map": [
-      [
-        "*",
-        "Ebizmarts/AutoResponder"
-      ]
-    ]
   }
 }
