@@ -1,11 +1,14 @@
 <?php
 /**
- * Author: info@ebizmarts.com
- * Date: 8/19/15
- * Time: 5:42 PM
- * File: Newordertrigger.php
- * Module: magento2-autoresponder
+ * Ebizmarts_Autoresponder Magento JS component
+ *
+ * @category    Ebizmarts
+ * @package     Ebizmarts_Autoresponder
+ * @author      Ebizmarts Team <info@ebizmarts.com>
+ * @copyright   Ebizmarts (http://ebizmarts.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+
 
 namespace Ebizmarts\AutoResponder\Model\System\Config;
 
