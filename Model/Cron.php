@@ -20,6 +20,11 @@ class Cron
      * @var \Magento\Framework\ObjectManagerInterface
      */
     protected $_objectManager;
+
+    /**
+     * @var \Magento\Customer\Model\ResourceModel\Customer\Collection
+     */
+    protected $_customerCollection;
     /**
      * @var \Magento\Store\Model\StoreManager
      */
@@ -46,6 +51,7 @@ class Cron
 
     /**
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
+     * @param \Magento\Customer\Model\ResourceModel\Customer\Collection $customerCollection
      * @param \Magento\Store\Model\StoreManager $storeManager
      * @param \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder
      * @param \Ebizmarts\AutoResponder\Helper\Data $helper
@@ -53,17 +59,19 @@ class Cron
      */
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
+        \Magento\Customer\Model\ResourceModel\Customer\Collection $customerCollection,
         \Magento\Store\Model\StoreManager $storeManager,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
         \Ebizmarts\AutoResponder\Helper\Data $helper,
         \Psr\Log\LoggerInterface $logger
     )
     {
-        $this->_objectManager   = $objectManager;
-        $this->_storeManager    = $storeManager;
-        $this->_transportBuilder= $transportBuilder;
-        $this->_helper          = $helper;
-        $this->_logger          = $logger;
+        $this->_objectManager       = $objectManager;
+        $this->_customerCollection  = $customerCollection;
+        $this->_storeManager        = $storeManager;
+        $this->_transportBuilder    = $transportBuilder;
+        $this->_helper              = $helper;
+        $this->_logger              = $logger;
     }
 
     /**
@@ -158,7 +166,7 @@ class Cron
         $sendCoupon = $this->_helper->getConfig(Config::BIRTHDAY_COUPON, $storeId);
         $customerGroupsCoupon = explode(",", $this->_helper->getConfig(Config::BIRTHDAY_CUSTOMER_COUPON, $storeId));
 
-        $collection = Mage::getModel('customer/customer')->getCollection();
+        $collection = $this->_customerCollection;
         $date2 = date("Y-m-d H:i:s", strtotime(" + $days days"));
         $month = date("m", strtotime($date2));
         $day = date("d", strtotime($date2));
