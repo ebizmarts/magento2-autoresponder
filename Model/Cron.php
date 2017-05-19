@@ -93,7 +93,7 @@ class Cron
      */
     protected function _processStore($storeId)
     {
-        if($this->_helper->getConfig(Config::NEWORDER_ACTIVE,$storeId)&&$this->_helper->isSetTime(Config::NEWORDER_CRON_TIME,$storeId))
+        if($this->_helper->getConfig(Config::NEWORDER_ACTIVE,$storeId) && $this->_helper->isSetTime(Config::NEWORDER_CRON_TIME,$storeId))
         {
             $this->_processNewOrder($storeId);
         }
@@ -116,15 +116,27 @@ class Cron
         $sender = array('name' => $this->_helper->getConfig("trans_email/ident_$senderId/name", $storeId), 'email' => $this->_helper->getConfig("trans_email/ident_$senderId/email", $storeId));
         $templateId = $this->_helper->getConfig(Config::NEWORDER_TEMPLATE, $storeId);
 
-        $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days, 'DAY'));
-        $from = new \Zend_Db_Expr($expr);
-        $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days - 1, 'DAY'));
-        $to = new \Zend_Db_Expr($expr);
-
         $collection = $this->_objectManager->create('\Magento\Sales\Model\Resource\Order\Collection');
-        $collection->addFieldToFilter('main_table.store_id', array('eq' => $storeId))
-            ->addFieldToFilter('main_table.created_at', array('from' => $from, 'to' => $to));
-        if ($this->_helper->getConfig(Config::NEWORDER_TRIGGER, $storeId) == 2) {
+        $collection->addFieldToFilter('main_table.store_id', array('eq' => $storeId));
+        if ($this->_helper->getConfig(Config::NEWORDER_TRIGGER, $storeId) === 0) {
+            $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days, 'DAY'));
+            $from = new \Zend_Db_Expr($expr);
+            $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days - 1, 'DAY'));
+            $to = new \Zend_Db_Expr($expr);
+
+            $collection->addFieldToFilter('main_table.created_at', array('from' => $from, 'to' => $to));
+        } else {
+            if ($this->_helper->getConfig(Config::NEWORDER_TRIGGER, $storeId) === 1) {
+                $days = 1;
+            }
+            $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days, 'DAY'));
+            $from = new \Zend_Db_Expr($expr);
+            $expr = sprintf('DATE_SUB(now(), %s)', $this->_getIntervalUnitSql($days - 1, 'DAY'));
+            $to = new \Zend_Db_Expr($expr);
+
+            $collection->addFieldToFilter('main_table.updated_at', array('from' => $from, 'to' => $to));
+        }
+        if ($this->_helper->getConfig(Config::NEWORDER_TRIGGER, $storeId) != 0) {
             $collection->addFieldToFilter('main_table.status', array('eq' => strtolower($this->_helper->getConfig(Config::NEWORDER_ORDER_STATUS, $storeId))));
         }
         if (count($customerGroups)) {
