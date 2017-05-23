@@ -61,6 +61,7 @@
                     <label>Days after order</label>
                     <depends>
                         <field id="*/*/active">1</field>
+                        <field id="*/*/trigger">0,2</field>
                     </depends>
                 </field>
                 <field id="order_status" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -102,7 +103,6 @@
                     <source_model>Ebizmarts\AutoResponder\Model\System\Config\Hours</source_model>
                     <depends>
                         <field id="*/*/active">1</field>
-                        <field id="*/*/trigger">0</field>
                     </depends>
                 </field>
             </group>
